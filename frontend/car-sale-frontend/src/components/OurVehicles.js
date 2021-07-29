@@ -1,26 +1,49 @@
 import React, { Component } from "react"
 import CardUI from "./Card/CardUI"
-
-import carExample from "../images/carExample.jpeg"
-import carExample2 from "../images/brown-car01.png"
+import axios from "axios"
+import images from "./images"
 
 class OurVehicles extends Component {
-  render() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      vehicles: []
+    }
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/vehicles")
+      .then(response => response.data)
+      .then(data => {
+        this.setState({ vehicles: data })
+        console.log(this.state.data)
+      })
+      .catch(function (ex) {
+        console.log("Response parsing failed. Error:", ex)
+      })
+  }
+
+  renderChildren(context) {
     return (
       <div className="container-fluid d-flex justify-content-center">
         <div className="row">
-          <div className="col-md-4">
-            <CardUI imgsrc={carExample} />
-          </div>
-          <div className="col-md-4">
-            <CardUI imgsrc={carExample2} />
-          </div>
-          <div className="col-md-4">
-            <CardUI imgsrc={carExample} />
-          </div>
+          {this.state.vehicles.map(vehicles =>
+            images.map(image => {
+              if (image.id === vehicles.id) {
+                return <div className="col-md-4">
+                  <CardUI  imgsrc={image.src} vehicleNumber={vehicles.vehicleNumber} model={vehicles.model} mileage={vehicles.mileAge} registerYear={vehicles.yearOfRegister} transmission={vehicles.transmission} />
+                  {console.log(vehicles.model)}
+                </div>
+              }
+            })
+          )}
         </div>
       </div>
     )
+  }
+  render() {
+    return this.renderChildren()
   }
 }
 

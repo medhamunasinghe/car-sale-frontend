@@ -1,25 +1,30 @@
 import React from "react"
+import { useHistory, withRouter } from "react-router-dom"
 import SidebarManager from "./Sidebar/SidebarManager"
 import Table from "./Table"
 
-// import SidebarVehicle from "./Sidebar/SidebarVehicle"
-// import VehicleCards from "./VehiclesCards"
+const DashboardContainer = props => {
+	const history = useHistory()
 
-export class DashboardContainer extends React.Component {
-  render() {
-    return (
-      <div className="panels">
-        <div className="panel-info">
-          <SidebarManager />
-          {/* <SidebarVehicle /> */}
-        </div>
-        <div className="panel-positions">
-          <Table />
-          {/* <VehiclesCards /> */}
-        </div>
-      </div>
-    )
-  }
+	// handle click event of logout button
+	function handleLogout() {
+		localStorage.removeItem("user-info")
+		history.push("/login")
+	}
+
+	return (
+		<div className="panels">
+			<div className="panel-info">
+				<SidebarManager />
+			</div>
+			<div className="panel-positions">
+				<br />
+				<br />
+				<Table />
+				<input type="button" onClick={handleLogout} value="Logout" />
+			</div>
+		</div>
+	)
 }
 
-export default DashboardContainer
+export default withRouter(DashboardContainer)
