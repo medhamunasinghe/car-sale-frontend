@@ -71,9 +71,7 @@ class InquiryForm extends Component {
 				console.log("Message failed to send.")
 			}
 		})
-	}
 
-	resetForm() {
 		this.setState({ inquirerName: "", inquirerEmail: "", inquirerTitle: "", inquiryBody: "" })
 	}
 }
