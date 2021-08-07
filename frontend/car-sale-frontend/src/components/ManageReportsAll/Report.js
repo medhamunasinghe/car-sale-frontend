@@ -40,21 +40,6 @@ const Report = () => {
 			})
 	}, [])
 
-	// function calculateTransactionProfit() {
-	// 	let transactionProfit = 0
-
-	// 	rowData.forEach(row => {
-	// 		console.log(row.buyingPrice)
-	// 		if (row.buyingPrice === 0) {
-	// 			transactionProfit = row.soldPrice - (row.buyingPrice + row.serviceCharges)
-	// 			setRowData({ transactionProfit: this.transactionProfit })
-	// 		} else {
-	// 			transactionProfit = row.commissionValue
-	// 			setRowData({ transactionProfit: this.transactionProfit })
-	// 		}
-	// 	})
-	// }
-
 	return (
 		<div style={{ width: "100%", height: "100%" }}>
 			<div style={{ display: "flex", flexDirection: "column", height: "100%" }}>

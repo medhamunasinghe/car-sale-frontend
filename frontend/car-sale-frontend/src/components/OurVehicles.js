@@ -18,7 +18,7 @@ class OurVehicles extends Component {
 			.then(data => {
 				this.setState({ vehicles: data })
 				this.setState({
-					image: "data:image/jpeg;base64, + data"
+					image: "data:image/jpeg;base64," + data
 				})
 				console.log(this.state.data)
 			})

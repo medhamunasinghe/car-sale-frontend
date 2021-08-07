@@ -1,6 +1,7 @@
 import React from "react"
 import "./CardStyle.css"
 
+// component for the card UI in Our Vehicles section
 const CardUI = props => {
 	return (
 		<div className="card shadow">
