@@ -923,18 +923,14 @@ section {
 }
 
 /* DashbordContainer */
-.panels {
-	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: 225px auto auto;
-	grid-template-rows: auto auto;
-}
+
 .panel-info {
-	grid-row: span 2;
+	margin-right: 0 !important;
+	padding: 0 !important;
 }
 .panel-positions {
-	grid-column: span 2;
-	margin: 100px 30px 0px 50px;
+	margin: 100px 10px 20px 30px;
+	padding: 0;
 }
 
 @media (max-width: 750px) {
@@ -945,6 +941,30 @@ section {
 	.panel-positions {
 		grid-column: span 2;
 	}
+}
+
+/* table */
+.table-container {
+	border: 1px solid #ddd;
+	width: 85%;
+	padding: 10px;
+	box-shadow: 5px 10px 18px #888888;
+}
+
+table .data-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+
+.table-headings,
+.table-data {
+	text-align: left;
+	padding: 8px;
+}
+
+.data-table tr:nth-child(even) {
+	background-color: #f2f2f2;
 }
 
 @media (max-width: 500px) {
@@ -988,4 +1008,36 @@ section {
 .login h3 {
 	display: flex;
 	justify-content: center;
+}
+
+/* Vehicle Administration */
+.list .action {
+	cursor: pointer;
+}
+
+.submit-form {
+	max-width: 300px;
+	margin: auto;
+}
+
+.edit-form {
+	max-width: 300px;
+	margin: auto;
+}
+
+/* ag-grid */
+.ag-style {
+	height: 500px;
+	width: 100%;
+}
+
+.vertical-middle {
+	display: flex;
+	align-items: center;
+}
+
+.vertical-middle img {
+	display: block;
+	border: 1px solid #ddd;
+	border-radius: 3px;
 }
